@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.sky.here.app.grpc";
+option java_outer_classname = "ContentProto";
+option objc_class_prefix = "Content";
+
+service Content {
+	
+	// 用户发布
+	rpc UserPublish(PublishContent) returns (PublishResult){}
+  
+}
+
+// 发布接口参数
+message PublishContent {
+	int32 topic_id = 1;
+	string title = 2;
+	string url = 3;
+	string content = 4;
+	int32 user_id = 5;
+	int32 location_id = 6;
+	string publish_ip = 7;
+}
+
+// 发布结果返回值
+message PublishResult {
+	int32 response_code = 1;
+	string response_message = 2;
+
+}
