@@ -25,7 +25,7 @@ message PublishContent {
 
 // 发布结果返回值
 message PublishResult {
-	int32 response_code = 1;
+	string response_code = 1;
 	string response_message = 2;
 
 }

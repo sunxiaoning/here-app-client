@@ -33,8 +33,7 @@ module.exports = {
                return client.userPublish(request, function(err,data){  
                     if(err){  
                       console.error(err);  
-                    } 
-
+                    }
                     let jsonp = ctx.request.query.callback+"("+JSON.stringify(new messages.PublishResult(data.array).toObject())+")";
                     ctx.rest(jsonp);
                     client.close();

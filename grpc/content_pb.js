@@ -364,7 +364,7 @@ proto.PublishResult.prototype.toObject = function(opt_includeInstance) {
  */
 proto.PublishResult.toObject = function(includeInstance, msg) {
   var f, obj = {
-    responseCode: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    responseCode: jspb.Message.getFieldWithDefault(msg, 1, ""),
     responseMessage: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
@@ -403,7 +403,7 @@ proto.PublishResult.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {string} */ (reader.readString());
       msg.setResponseCode(value);
       break;
     case 2:
@@ -440,8 +440,8 @@ proto.PublishResult.prototype.serializeBinary = function() {
 proto.PublishResult.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getResponseCode();
-  if (f !== 0) {
-    writer.writeInt32(
+  if (f.length > 0) {
+    writer.writeString(
       1,
       f
     );
@@ -457,15 +457,15 @@ proto.PublishResult.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional int32 response_code = 1;
- * @return {number}
+ * optional string response_code = 1;
+ * @return {string}
  */
 proto.PublishResult.prototype.getResponseCode = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {number} value */
+/** @param {string} value */
 proto.PublishResult.prototype.setResponseCode = function(value) {
   jspb.Message.setField(this, 1, value);
 };
